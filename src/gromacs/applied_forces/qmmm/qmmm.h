@@ -63,7 +63,11 @@ struct QMMMModuleInfo
      */
     static std::unique_ptr<IMDModule> create();
     //! The name of the module
+#if GMX_PYSCF
+    static constexpr std::string_view sc_name = "qmmm-pyscf";
+#else
     static constexpr std::string_view sc_name = "qmmm-cp2k";
+#endif
 };
 
 } // namespace gmx
